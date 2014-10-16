@@ -6,14 +6,17 @@ import java.util.Stack;
  */
 public class StackDFS {
     public LinkedList<Integer> stackDFS(Digraph G, int source) {
-        boolean[] visited = new boolean[G.adj.length];      // Create boolean array to flag visited vertices
+        if (G.bag.length < source) {                        // If length of bag is lesser than source, source can't exist
+            return null;
+        }
+        boolean[] visited = new boolean[G.V()];      // Create boolean array to flag visited vertices
         Stack<Integer> stack = new Stack<Integer>();        // Create new stack
         stack.push(source);                                 // Push initial vertex
         while(!stack.isEmpty()) {
             int v = stack.pop();
             if (!visited[v]) {                              // If the popped value isn't visited..
                 visited[v] = true;                          // Flag it as visited
-                for (int i : G.adj[v]) {                    // Then push every adjacent vertex
+                for (int i : G.bag[v]) {                    // Then push every adjacent vertex
                     stack.push(i);
                 }
             }

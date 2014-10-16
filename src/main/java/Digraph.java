@@ -7,14 +7,14 @@ import edu.princeton.cs.introcs.In;
 public class Digraph {
     private final int V;                                    // Number of vertices
     private int E;                                          // Number of edges
-    protected Bag<Integer>[] adj;                           // bag array of adjacency lists
+    protected Bag<Integer>[] bag;                           // Bag array of adjacency lists
 
     public Digraph(int V) {
         this.V = V;
         this.E = 0;
-        adj = (Bag<Integer>[]) new Bag[V];                  // Create list array
+        bag = (Bag<Integer>[]) new Bag[V];                  // Create list array
         for (int v = 0; v < V; v++) {
-            adj[v] = new Bag<Integer>();                    // Initialize lists to empty
+            bag[v] = new Bag<Integer>();                    // Initialize lists to empty
         }
     }
 
@@ -24,24 +24,24 @@ public class Digraph {
         for (int i = 0; i < E; i++) {
             int v = in.readInt();                           // Read first vertex
             int w = in.readInt();                           // Read second vertex
-            addEdge(v, w);                                  // Add path v -> w
+            addEdge(v, w);                                  // Add directed path v -> w
         }
     }
 
-    public int V() {
+    public int V() {                                        // Returns number of vertices
         return V;
     }
-    public int E() {
+    public int E() {                                        // Returns number of edges
         return E;
     }
 
     public void addEdge(int v, int w) {
-        adj[v].add(w);                                      // Add path v -> w
+        bag[v].add(w);                                      // Add path v -> w
         E++;
     }
 
     public Iterable<Integer> adj(int v) {
-        return adj[v];
+        return bag[v];
     }
 
 }
