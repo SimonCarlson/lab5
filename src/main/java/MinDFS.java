@@ -15,19 +15,20 @@ public class MinDFS {
     }
 
     public int minRecursive(Digraph G, boolean[] visited, int[] min, int s) {
-        if (!visited[s]) {
-            if (G.bag[s].isEmpty()) {
-                min[s] = s;
-                visited[s] = true;
-                return s;
+        visited[s] = true;
+        if (G.bag[s].isEmpty()) {
+            min[s] = s;
+            return s;
+        }
+        for (int i : G.bag[s]) {
+            if (!visited[i]) {
+                min[i] = minRecursive(G, visited, min, i);
+            }
+            if (i < min[i]) {
+                min[s] = i;
             }
             else {
-                visited[s] = true;
-                for (int i : G.bag[s]) {
-                    if (!visited[i]) {
-                        min[s] = minRecursive(G, visited, min, i);
-                    }
-                }
+                min[s] = min[i];
             }
         }
         return min[s];

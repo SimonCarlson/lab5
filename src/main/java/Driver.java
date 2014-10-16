@@ -31,6 +31,7 @@ public class Driver {
         }
         StdOut.println("\nTime spent: \n" + stackWatch.elapsedTime());
 
+        StdOut.println("\nSmallest index for each node:");
         for (int i : min.minDFS(digraph)) {
             StdOut.println(i + " ");
         }
