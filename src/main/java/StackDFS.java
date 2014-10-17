@@ -9,7 +9,7 @@ public class StackDFS {
         if (G.bag.length < source) {                        // If length of bag is lesser than source, source can't exist
             return null;
         }
-        boolean[] visited = new boolean[G.V()];      // Create boolean array to flag visited vertices
+        boolean[] visited = new boolean[G.V()];             // Create boolean array to flag visited vertices
         Stack<Integer> stack = new Stack<Integer>();        // Create new stack
         stack.push(source);                                 // Push initial vertex
         while(!stack.isEmpty()) {

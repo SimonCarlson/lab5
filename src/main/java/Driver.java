@@ -22,17 +22,17 @@ public class Driver {
         for (int i : recursive.recursiveDFS(digraph, 0)) {  // Iterates through the list given from recursiveDFS
             StdOut.print(i + " ");
         }
-        StdOut.println("\nTime spent: \n" + recWatch.elapsedTime());
+        StdOut.println("\nTime spent: \n" + recWatch.elapsedTime());    // Prints running time for recursive method
 
         StdOut.println("\nUsing stack");
         Stopwatch stackWatch = new Stopwatch();
         for (int i : stack.stackDFS(digraph, 0)) {          // Iterates through the list given from stackDFS
             StdOut.print(i + " ");
         }
-        StdOut.println("\nTime spent: \n" + stackWatch.elapsedTime());
+        StdOut.println("\nTime spent: \n" + stackWatch.elapsedTime());  // Prints running time for stack method
 
         StdOut.println("\nSmallest index for each node:");
-        for (int i : min.minDFS(digraph)) {
+        for (int i : min.minDFS(digraph)) {                 // Iterates through min value array
             StdOut.println(i + " ");
         }
     }
